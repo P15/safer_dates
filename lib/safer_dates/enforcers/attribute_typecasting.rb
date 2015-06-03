@@ -6,7 +6,12 @@ ActiveRecord::ConnectionAdapters::Column.class_eval do
 
   def self.fallback_string_to_time(string)
     return nil if StringUtils.blank?(string)
-    raise InvalidDateTimeFormat.new(string)
+
+    if string =~ DateParser::ISO_DATE
+      DateTime.new($1.to_i, $2.to_i, $3.to_i, 00, 00, 00)
+    else
+      raise InvalidDateTimeFormat.new(string)
+    end
   end
 
   class InvalidDateFormat < StandardError; end
