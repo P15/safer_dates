@@ -1,7 +1,10 @@
+$:.push File.expand_path('../lib', __FILE__)
+require 'safer_dates/version'
+
 Gem::Specification.new do |s|
   s.name         = 'safer_dates'
-  s.version      = '0.0.2'
-  s.date         = '2015-06-03'
+  s.version      = SaferDates::VERSION
+  s.date         = Time.now.utc.strftime("%Y-%m-%d")
   s.summary      = 'Enforce ISO 8601 date and datetime parsing in Ruby'
   s.description  = "Allows users to remove methods such as Date.parse and\n" \
                    "DateTime.parse which are not very strict in terms of enforcing ISO 8601.\n" \
@@ -12,6 +15,8 @@ Gem::Specification.new do |s|
   s.homepage     = 'http://github.com/Recombine/safer_dates'
   s.license      = 'MIT'
 
-  s.files        = Dir['lib/**/*']
-  s.require_path = 'lib'
+
+  s.files         = `git ls-files`.split("\n")
+  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+  s.require_paths = ['lib']
 end
