@@ -3,6 +3,10 @@
 This library allows users to strictly enforce ISO 8601 date and datetime
 parsing in Ruby.
 
+This library is very new and has currently only been tested against Ruby 2.1.3
+and Rails 4.1.5. It should not be considered production ready. Use at your own
+risk.
+
 
 ## Usage
 
