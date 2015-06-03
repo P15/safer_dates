@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
                    "string representation before typecasting does not conform to ISO 8601"
   s.authors      = ["Teddy Widom"]
   s.email        = 'theodore.widom@gmail.com'
-  s.homepage     = 'http://github.com/bluerogue/safer_dates'
+  s.homepage     = 'http://github.com/Recombine/safer_dates'
   s.license      = 'MIT'
 
   s.files        = Dir['lib/**/*']
