@@ -41,7 +41,12 @@ require 'date'
 => false
 
 > Date.parse('10/12/1999')
-=> THROWS ERROR
+=> # Throws error and suggests `Date.new(yyyy, mm, dd)`
+
+> Date.parse('1999-01-01')
+=> # Throws error and suggests `Date.new(yyyy, mm, dd)`.
+   # despite the fact that this particular string was ISO 8601 compliant,
+   # it still is a good idea to avoid the `Date.parse` method in general.
 
 # and similar behavior for datetimes when using `require 'safer_dates/enforcers/datetime_dot_parse.rb'`
 ```
@@ -63,10 +68,10 @@ require 'date'
 require 'safer_dates/enforcers/attribute_typecasting'
 
 > Foo.new(start_date: 'invalid')
-=> RAISES ERROR
+=> # Throws error
 
 > Foo.new(start_date: '25/01/1999')
-=> RAISES ERROR
+=> # Throws error
 
 > Foo.new(start_date: '1999-01-25')
 => # Works
@@ -80,7 +85,7 @@ require 'safer_dates/enforcers/attribute_typecasting'
 require 'safer_dates/parsers/date_parser.rb'
 
 > DateParser.p('10/01/1999')
-=> RAISES ERROR
+=> # Throws error
 
 > DateParser.p('1999-01-10')
 => # Works
@@ -89,7 +94,7 @@ require 'safer_dates/parsers/date_parser.rb'
 ```ruby
 require 'safer_dates/parsers/datetime_parser.rb'
 > DateTimeParser.p('10/01/1999 11:10:00')
-=> RAISES ERROR
+=> # Throws error
 
 > DateTimeParser.p('1999-10-01 11:10:00')
 => # Works
@@ -100,3 +105,7 @@ require 'safer_dates/parsers/datetime_parser.rb'
 
 The ISO 8601 regexes and date/datetime instantiation logic was originally taken
 from rails/activerecord source code.
+
+## License
+
+The [MIT License](LICENSE.txt)
