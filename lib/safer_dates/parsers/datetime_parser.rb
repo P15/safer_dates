@@ -1,8 +1,10 @@
+require_relative '../utils/string_utils'
+
 class DateTimeParser
   ISO_DATETIME = /\A(\d{4})-(\d\d)-(\d\d) (\d\d):(\d\d):(\d\d)(\.\d+)?\z/
 
   def self.p(string)
-    return nil if string.blank?
+    return nil if StringUtils.blank?(string)
 
     if string =~ ISO_DATETIME
       microsec = ($7.to_r * 1_000_000).to_i

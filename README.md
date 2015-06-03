@@ -100,8 +100,3 @@ require 'safer_dates/parsers/datetime_parser.rb'
 
 The ISO 8601 regexes and date/datetime instantiation logic was originally taken
 from rails/activerecord source code.
-
-
-## TODO
-
-This currently implicitly depends on activesupport's `String.blank?` method. It should be rewritten not to.
