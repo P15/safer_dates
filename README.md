@@ -80,6 +80,10 @@ require 'safer_dates/enforcers/attribute_typecasting'
 => # Works
 ```
 
+`DateParser` and `DateTimeParser` objects are provided for strict ISO 8601
+parsing of strings to dates and datetimes. However it is generally preferable
+just to use built-in Ruby methods for this if at all possible: 
+`Date.new(yyyy, mm, dd)` and `DateTime.new(yyyy, mm, dd, hh, mm, ss)`
 
 ```ruby
 require 'safer_dates/parsers/date_parser.rb'
