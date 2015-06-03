@@ -1,4 +1,4 @@
-require 'activerecord'
+require 'active_record'
 require_relative '../utils/string_utils'
 require_relative '../parsers/date_parser'
 

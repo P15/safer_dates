@@ -2,6 +2,9 @@ require 'minitest/autorun'
 require 'safer_dates/enforcers/attribute_typecasting'
 
 class AttributeTypecastingTest < Minitest::Test
+  class PatientUser < ActiveRecord::Base
+  end
+
   def test_activerecord_date_columns_accept_blank_strings_as_nil_dates
     assert_equal nil, PatientUser.new(birth_date: '').birth_date
     assert_equal nil, PatientUser.new(birth_date: '   ').birth_date
